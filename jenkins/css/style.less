@@ -1,0 +1,104 @@
+@success: #caf97b;
+@unstable: #ffd675;
+@failed: #ff9292;
+@unknown: #a8a8a8;
+
+.block() {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0 2%;
+}
+
+header {
+  width: 100%;
+  padding: 20px;
+  text-align: center;
+  font-size: 1.75em;
+
+  h1, h2 {
+    margin: 0 auto 5px;
+  }
+}
+
+.loading {
+  display: block;
+  margin: auto;
+}
+
+.jobs {
+  .job {
+    .block();
+    display: inline-block;
+    width: 24%;
+    height: 280px;
+    background-color: @unknown;
+    margin: 0.5%;
+    padding: 20px 10px;
+    position: relative;
+    overflow: hidden;
+
+    h1, time {
+      text-align: right;
+      width: 100%;
+      display: block;
+      z-index: 2;
+    }
+
+    h1 {
+      font-size: 40px;
+      margin: 0 0 20px 0;
+      font-weight: bold;
+    }
+
+    time {
+      font-size: 36px;
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+    }
+
+    &:before {
+      position: absolute;
+      left: 15px;
+      bottom: 7px;
+      font-size: 250px;
+      transform: rotate(90deg);
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    &.blue, &.blue_anime {
+      background-color: @success;
+
+      &:before {
+        content: ":)";
+      }
+    }
+
+    &.yellow, &.yellow_anime {
+      background-color: @unstable;
+
+      &:before {
+        content: ":/";
+      }
+    }
+
+    &.red, &.red_anime {
+      background-color: @failed;
+
+      &:before {
+        content: ":(";
+      }
+    }
+
+    &.grey, &.gret_anime {
+      background-color: @unknown;
+
+      &:before {
+        content: "??";
+      }
+    }
+  }
+}

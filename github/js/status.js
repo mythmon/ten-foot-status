@@ -15,29 +15,6 @@ var header_template =
   '<span>As of {created_on_disp}</span>' +
 '</header>';
 
-function formatDate(date) {
-  var now = new Date();
-  var date_disp;
-
-  date_disp = date.getHours() + ':' + date.getMinutes();
-  date_disp += ' - ';
-
-  if (now - date < 24 * 60 * 60 * 1000) {
-    date_disp += 'Today';
-  } else if (now - date < 48 * 60 * 60 * 1000) {
-    date_disp += 'Yesterday';
-  } else {
-    date_disp += date.getFullYear() + '-';
-    var month = date.getMonth() + 1;
-    if (month < 10) {
-      date_disp += '0';
-    }
-    date_disp += month + '-' + date.getDate();
-  }
-
-  return date_disp;
-}
-
 function ready() {
   console.log('ready ' + waitCount);
   if (--waitCount) return;
