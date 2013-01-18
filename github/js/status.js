@@ -10,7 +10,7 @@ var status_template =
 
 var header_template =
 '<header class={status}>' +
-  '<h1>Github Status</h1>' +
+  '<h1>GitHub Status</h1>' +
   '<h2>{status_disp}</h2>' +
   '<span>As of {created_on_disp}</span>' +
 '</header>';

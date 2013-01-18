@@ -47,18 +47,26 @@ function timeAgo(date) {
   }
   var minutes = diff / 1000 / 60;
   if (minutes < 50) {
-    var minutes = Math.round(minutes);
+    minutes = Math.round(minutes);
     if (minutes == 1) {
-      return Math.round(minutes) + ' minute ago';
+      return '1 minute ago';
     } else {
-      return Math.round(minutes) + ' minutes ago';
+      return minutes + ' minutes ago';
     }
   }
   var hours = minutes / 60;
   if (hours < 22) {
     hours = Math.round(hours);
-    return hours + ' hours ago';
+    if (hours === 1) {
+      return '1 hour ago';
+    } else {
+      return hours + ' hours ago';
+    }
   }
-  var days = hours / 24;
-  return days + ' days ago';
+  var days = Math.round(hours / 24);
+  if (days == 1) {
+    return '1 day ago';
+  } else {
+    return days + ' days ago';
+  }
 }
