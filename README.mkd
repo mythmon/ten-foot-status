@@ -1,0 +1,8 @@
+This is a set of status dashboards to go on things like wall mounted TVs in
+Office spaces. Each set of files is a set of JavaScript, HTML, and CSS designed
+to be served statically from the root of this repo.
+
+So far:
+
+* Github status
+* Mozilla's Jenkins server.
