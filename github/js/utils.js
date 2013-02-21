@@ -18,7 +18,9 @@ function formatDate(date) {
   var now = new Date();
   var date_disp;
 
-  date_disp = date.getHours() + ':' + date.getMinutes();
+  date_disp = date.getHours() + ':';
+  date_disp += (date.getMinutes() < 10) ? '0' : '';
+  date_disp += date.getMinutes();
   date_disp += ' - ';
 
   if (now - date < 24 * 60 * 60 * 1000) {
