@@ -2,23 +2,36 @@
 @minor: #e97e01;
 @major: #c80001;
 
-body {
-  font-size: 1.8em;
-}
-
 .block() {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
-header {
-  width: 100%;
-  padding: 20px;
-  text-align: center;
-  font-size: 1.75em;
+body {
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
 
-  h1, h2 {
-    margin: 10px;
+header {
+  .block;
+  width: 100vw;
+  padding: 3vmin;
+  text-align: center;
+
+  h1, h2, h3 {
+    margin: 1.5vmin;
+  }
+
+  h1 {
+    font-size: 5vmin;
+  }
+
+  h2 {
+    font-size: 4vmin;
+  }
+
+  h3 {
+    font-size: 3vmin;
   }
 
   &.good {
@@ -33,26 +46,27 @@ header {
 }
 
 .messages {
-  width: 75%;
-  margin: 20px auto;
+  width: 75vw;
+  margin: 3vmin auto;
   padding: 0;
 
   .status {
-    list-style: none;
-    padding: 15px;
-    margin-bottom: 2px;
+    border-width: 0 0.2vmin 0 2vmin;
     border: 0px solid #333;
-    border-width: 0 2px 0 15px;
+    font-size: 2vw;
+    list-style: none;
+    margin-bottom: 0.2vmin;
+    padding: 2vmin;
     position: relative;
 
     p {
-      width: 80%;
+      width: 50vw;
     }
 
     time {
       position: absolute;
-      right: 20px;
-      top: 30px;
+      right: 3vmin;
+      top: 3vmin;
     }
 
     &.good {
@@ -71,11 +85,9 @@ header {
     }
 
     &:first-child {
-      font-size: 1.75em;
-      margin-bottom: 40px;
+      margin-bottom: 6vmin;
 t com
       p {
-        width: 100%;
         text-align: center;
       }
       time {

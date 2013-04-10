@@ -12,7 +12,7 @@ var header_template =
 '<header class={status}>' +
   '<h1>GitHub Status</h1>' +
   '<h2>{status_disp}</h2>' +
-  '<span>As of {created_on_disp}</span>' +
+  '<h3>As of {created_on_disp}</h3>' +
 '</header>';
 
 function ready() {
