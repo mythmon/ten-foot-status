@@ -11,15 +11,14 @@ To run locally:
 # make a virtual env, fire it up, then...
 pip install requirements.txt
 
-# use environment vars to override host and port defaults
-export TENFS_HOST=0.0.0.0
-export TENFS_PORT=5000
+# use .env to override host and port defaults
+vi .env
 
 # install https://github.com/ddollar/foreman
 foreman start
 ```
 
-Alternatively you can skip Foreman, introspect the Procfile, and run things your self.
+Alternatively you can skip Foreman, introspect the Procfile, export environment vars, and run everything your self.
 
 Once you're up and running, your pages will be at:
 `http://:host:port/static/:module/index.html`
