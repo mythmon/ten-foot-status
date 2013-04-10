@@ -45,15 +45,11 @@ function ready() {
 }
 
 function ciDataReceived(data) {
-  ciData = data;
-  ready();
 }
 
-var query = 'jobs[name,color,buildable,lastBuild[timestamp]]';
-$('<script>', {
-    src: 'https://ci.mozilla.org/api/json?tree={0}&jsonp=ciDataReceived'
-      .format(query)
-  })
-  .appendTo('body');
+$.getJSON('/jenkins/data', function(data) {
+  ciData = data;
+  ready();
+});
 
 $(ready);
