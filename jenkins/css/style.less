@@ -9,17 +9,19 @@
 }
 
 body {
-  margin: 0 2%;
+  overflow: hidden;
+  margin: 0.4vh 0.4vw;
 }
 
 header {
-  width: 100%;
-  padding: 20px;
+  width: 100vw;
+  height: 11vh;
+  padding: 2vh auto;
   text-align: center;
-  font-size: 1.75em;
+  font-size: 4vmin;
 
-  h1, h2 {
-    margin: 0 auto 5px;
+  h1 {
+    margin: 0 auto 1vmin;
   }
 }
 
@@ -31,14 +33,14 @@ header {
 .jobs {
   .job {
     .block();
-    display: inline-block;
-    width: 24%;
-    height: 280px;
     background-color: @unknown;
-    margin: 0.5%;
-    padding: 20px 10px;
-    position: relative;
+    display: inline-block;
+    height: 28vh;
+    margin: 0.4vh 0.4vw;
     overflow: hidden;
+    padding: 1vh 1vw;
+    position: relative;
+    width: 24vw;
 
     h1, time {
       text-align: right;
@@ -48,23 +50,23 @@ header {
     }
 
     h1 {
-      font-size: 40px;
-      margin: 0 0 20px 0;
+      font-size: 4vmin;
+      margin: 0 0 1vh 0;
       font-weight: bold;
     }
 
     time {
-      font-size: 36px;
+      font-size: 3vmin;
       position: absolute;
-      bottom: 10px;
-      right: 10px;
+      bottom: 1vh;
+      right: 1vw;
     }
 
     &:before {
       position: absolute;
-      left: 15px;
-      bottom: 7px;
-      font-size: 250px;
+      left: 2vw;
+      bottom: 1vh;
+      font-size: 30vmin;
       transform: rotate(90deg);
       color: rgba(255, 255, 255, 0.4);
     }
