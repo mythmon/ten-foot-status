@@ -1,1 +1,1 @@
-web: gunicorn tenfs:app
+web: gunicorn -b $HOST:$PORT tenfs:app

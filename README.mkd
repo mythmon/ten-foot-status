@@ -11,6 +11,10 @@ To run locally:
 # make a virtual env, fire it up, then...
 pip install requirements.txt
 
+# use environment vars to set host and port
+export PORT=5000
+export HOST=0.0.0.0
+
 # install https://github.com/ddollar/foreman
 foreman start
 ```
