@@ -1,8 +1,21 @@
 This is a set of status dashboards to go on things like wall mounted TVs in
-Office spaces. Each set of files is a set of JavaScript, HTML, and CSS designed
-to be served statically from the root of this repo.
+Office spaces.
 
-So far:
+Included pages:
 
 * Github status
 * Mozilla's Jenkins server.
+
+To run locally:
+```
+# make a virtual env, fire it up, then...
+pip install requirements.txt
+
+# install https://github.com/ddollar/foreman
+foreman start
+```
+
+Alternatively you can skip Foreman, introspect the Procfile, and run things your self.
+
+Once you're up and running, your pages will be at:
+`http://:host:port/static/:module/index.html`
