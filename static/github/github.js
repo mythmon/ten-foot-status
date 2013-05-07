@@ -1,48 +1,41 @@
-/* jslint multistr */
-var messages;
-var waitCount = 2;
+d3.json('/github/data', function(error, messages) {
+  if (error) return console.warn(error);
 
-var status_template =
-'<li class="status {status}">' +
-  '<p>{body}</p>' +
-  '<time datetime={created_on}>{created_on_disp}</time>' +
-'</li>';
+  var wrap = d3.select('#wrap');
 
-var header_template =
-'<header class={status}>' +
-  '<h1>GitHub Status</h1>' +
-  '<h2>{status_disp}</h2>' +
-  '<h3>As of {created_on_disp}</h3>' +
-'</header>';
+  var header = wrap.append('header')
+    .data([messages[0]])
+    .attr('class', function(d) { return d.status; });
 
-function ready() {
-  if (--waitCount) return;
+  header.append('h1').text('GitHub Status');
+  header.append('h2')
+    .text(function(d) {
+      switch (d.status) {
+        case 'good': return 'Battle status fully operational';
+        case 'minor': return 'Minor disruption';
+        case 'major': return 'Major disruption';
+        default: return 'Status unknown: ' + d.status;
+      }
+    });
+  header.append('h3')
+    .text(function(d) {
+      return formatDate(new Date(d.created_on));
+    });
 
-  var $messagesFragment = $('<ul/>', {'class': 'messages'});
-  _.each(messages, function(msg) {
-    msg.created_on_disp = formatDate(new Date(msg.created_on));
-    $messagesFragment.append($(status_template.format(msg)));
-  });
-
-  var latest = messages[0];
-  if (latest.status === 'good') {
-    latest.status_disp = 'Battle stations fully operational';
-  } else if (latest.status === 'minor') {
-    latest.status_disp = 'Minor disruption';
-  } else if (latest.status === 'major') {
-    latest.status_disp = 'Major disruption';
-  } else {
-    latest.status_disp = 'Unknown';
-  }
-
-  $('#wrap')
-    .html(header_template.format(latest))
-    .append($messagesFragment);
-}
-
-$.getJSON('https://status.github.com/api/messages.json?callback=?', {}, function(msgs) {
-    messages = msgs;
-    ready();
-  });
-
-$(ready);
+  wrap.append('ul')
+    .classed('messages', true)
+    .selectAll('li')
+      .data(messages)
+      .enter()
+      .append('li')
+        .attr('class', function(d) {
+          return 'status ' + d.status;
+        })
+        .each(function(d) {
+          var li = d3.select(this);
+          li.append('p').text(d.body);
+          li.append('time')
+            .attr('datetime', d.created_on)
+            .text(formatDate(new Date(d.created_on)));
+        });
+});
