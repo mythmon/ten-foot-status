@@ -36,38 +36,3 @@ d3.json('/jenkins/data', function(error, ciData) {
 
   d3.select('.loading').remove();
 });
-
-
-function timeAgo(date) {
-  var now = new Date();
-  var diff = now - date;
-
-  // These would be displayed as "0 minutes"
-  if (diff < 60 * 1000) {
-    return "Just now";
-  }
-  var minutes = diff / 1000 / 60;
-  if (minutes < 50) {
-    minutes = Math.round(minutes);
-    if (minutes == 1) {
-      return '1 minute ago';
-    } else {
-      return minutes + ' minutes ago';
-    }
-  }
-  var hours = minutes / 60;
-  if (hours < 22) {
-    hours = Math.round(hours);
-    if (hours === 1) {
-      return '1 hour ago';
-    } else {
-      return hours + ' hours ago';
-    }
-  }
-  var days = Math.round(hours / 24);
-  if (days == 1) {
-    return '1 day ago';
-  } else {
-    return days + ' days ago';
-  }
-}

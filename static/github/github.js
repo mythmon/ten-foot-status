@@ -16,7 +16,6 @@ var header_template =
 '</header>';
 
 function ready() {
-  console.log('ready ' + waitCount);
   if (--waitCount) return;
 
   var $messagesFragment = $('<ul/>', {'class': 'messages'});
