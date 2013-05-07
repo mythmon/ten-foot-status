@@ -13,5 +13,10 @@ def ping():
 def jenkins_data():
     query = 'jobs[name,color,buildable,lastBuild[timestamp]]'
     url = 'https://ci.mozilla.org/api/json?tree={0}'.format(query)
-    resp = requests.get(url)
-    return resp.text
+    return requests.get(url).text
+
+
+@app.route('/github/data')
+def github_data():
+    url = 'https://status.github.com/api/messages.json'
+    return requests.get(url).text
