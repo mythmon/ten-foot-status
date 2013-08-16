@@ -1,0 +1,9 @@
+name: tfs
+framework:
+    type: python
+    runtime: python27
+mem: 32M
+instances: 1
+processes:
+    web: gunicorn -b 0.0.0.0:$PORT tenfs:app
+ignores: ["include", "lib", "bin"]
